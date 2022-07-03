@@ -1,0 +1,68 @@
+library(dplyr)
+library(highcharter)
+
+set.seed(2022)
+options(dplyr.summarise.inform = FALSE)
+
+tatu_graph_function <- function(type){
+  
+  if(type == "mobile"){
+    
+    dynamic_size = "10px"
+    title_size = "14px"
+    
+  }else{
+    
+    dynamic_size = "18px"
+    title_size = "18px"
+    
+  }
+  
+  if(type == "mobile"){
+    
+    tatu_graph <- df2 %>%
+      hchart('bar', highcharter::hcaes(x = 'xvals', y = "value"),
+             color = "#e43057")
+  }else{
+    
+    tatu_graph <- df2 %>%
+      hchart('column', highcharter::hcaes(x = 'xvals', y = "value"),
+             color = "#e43057")
+  }
+  
+ ... 
+ 
+}
+
+
+
+
+kwanza_graph_function <- function(type){
+  
+  if(type == "mobile"){
+    dynamic_size = "10px"
+    title_size = "14px"
+  }else
+    dynamic_size = "18px"
+  title_size = "18px"
+  
+  kwanza_graph <- df %>%
+    hchart('line', highcharter::hcaes(x = 'year', y = "value", group = "county")
+    )%>% 
+    hc_colors(c("#e43057", "black")) %>% 
+    hc_yAxis(title = list(text = ""),
+             labels = list(style = 
+                             list(fontSize = dynamic_size))
+    ) %>% 
+    hc_xAxis(title = list(text = ""),
+             labels = list(style = 
+                             list(fontSize = dynamic_size))
+    ) %>% 
+    hc_title (text = "This is dummy output",
+              align = "left", 
+              margin= 50,
+              style = list(fontSize = title_size, 
+                           fontWeight = 'bold')) %>%
+    ...
+}
+
